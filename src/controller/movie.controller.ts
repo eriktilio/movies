@@ -1,46 +1,59 @@
+import { Request, Response } from "express";
 import Movie from "../models/movie";
-import database from "../repositories/database";
+import {
+  createMovie,
+  getAllMovies,
+  getOneMovie,
+  updateMovie,
+  deleteOneMovie,
+} from "../repositories/movie.repository";
 
 const movieController = {
-  createOne: (movie: Movie, callback: (id?: number) => void) => {
-    const sql =
-      "INSERT INTO movies(title, urlPoster, overview) VALUES (?, ?, ?)";
-    const params = [movie.title, movie.urlPoster, movie.overview];
-    database.run(sql, params, function () {
-      callback(this?.lastID);
+  createOne: (req: Request, res: Response) => {
+    const movie: Movie = req.body;
+    createMovie(movie, (id) => {
+      if (id) {
+        res.status(201).location(`/movies/${id}`).send();
+      } else {
+        res.status(400).send();
+      }
     });
   },
 
-  getAll: (callback: (itens: Movie[]) => void) => {
-    const sql = "SELECT * FROM movies";
-    const params: unknown[] = [];
-    database.all(sql, params, (_err, rows) => callback(rows));
+  getAll: (_req: Request, res: Response) => {
+    getAllMovies((movies) => res.json(movies));
   },
 
-  getOne: (id: number, callback: (movie?: Movie) => void) => {
-    const sql = "SELECT * FROM movies WHERE id = ?";
-    const params = [id];
-    database.get(sql, params, (_err, row) => callback(row));
-  },
-
-  updateOne: (
-    id: number,
-    movie: Movie,
-    callback: (notFound: boolean) => void
-  ) => {
-    const sql =
-      "UPDATE movies SET title = ?, urlPoster = ?, overview = ? WHERE id = ?";
-    const params = [movie.title, movie.urlPoster, movie.overview, id];
-    database.run(sql, params, function () {
-      callback(this.changes === 0);
+  getOne: (req: Request, res: Response) => {
+    const id: number = +req.params.id;
+    getOneMovie(id, (movie) => {
+      if (movie) {
+        res.status(200).json(movie);
+      } else {
+        res.status(404).send();
+      }
     });
   },
 
-  deleteOne: (id: number, callback: (notFound: boolean) => void) => {
-    const sql = "DELETE FROM movies WHERE id = ?";
-    const params = [id];
-    database.run(sql, params, function () {
-      callback(this.changes === 0);
+  updateOne: (req: Request, res: Response) => {
+    const id: number = +req.params.id;
+    updateMovie(id, req.body, (notFound) => {
+      if (notFound) {
+        res.status(404).send();
+      } else {
+        res.status(204).send();
+      }
+    });
+  },
+
+  deleteOne: (req: Request, res: Response) => {
+    const id: number = +req.params.id;
+    deleteOneMovie(id, (notFound) => {
+      if (notFound) {
+        res.status(404).send();
+      } else {
+        res.status(204).send();
+      }
     });
   },
 };

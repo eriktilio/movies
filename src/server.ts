@@ -26,5 +26,5 @@ app.use("/api", moviesRouter);
 
 // Inicia o sevidor
 app.listen(PORT, () => {
-  console.log(`Servidor rodando com sucesso ${HOSTNAME}:${PORT}`);
+  console.log(`Servidor rodando e: ${HOSTNAME}:${PORT}`);
 });
