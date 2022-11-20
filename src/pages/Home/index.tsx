@@ -8,8 +8,8 @@ const Home: React.FC = () => {
     <Container>
       <Header />
       <Body>
-        <Category title="Adicionados recentemente" />
-        <Category title="Top 10" />
+        <Category title="Top 10 da semana" carousel />
+        <Category title="Filmes e séries" />
       </Body>
     </Container>
   );

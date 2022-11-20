@@ -2,9 +2,10 @@ import React from "react";
 import Card from "../../components/Card";
 import { Container } from "./styles";
 
-const Home: React.FC = () => {
+const CardList: React.FC = () => {
   return (
     <Container>
+      <Card />
       <Card />
       <Card />
       <Card />
@@ -15,4 +16,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default CardList;

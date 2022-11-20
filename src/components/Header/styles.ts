@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   position: sticky;
-  z-index: 1000;
+  z-index: 1001;
   top: 0;
   align-items: center;
   justify-content: space-between;

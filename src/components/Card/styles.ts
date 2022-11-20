@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const Overlay = styled.div`
   display: flex;
+  flex-direction: column;
   height: 100%;
-  border-radius: 1vh;
+  padding: 1rem;
   align-items: center;
   justify-content: center;
   color: var(--white);
@@ -20,12 +21,14 @@ export const Container = styled.div`
   background-color: var(--color5);
   height: 60vh;
   width: 100%;
+  user-select: none;
 
   transition: transform 0.2s; /* Animation */
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.03);
+    border-radius: 0;
+    transform: scale(1.02);
   }
 
   &:hover ${Overlay} {

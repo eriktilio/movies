@@ -6,6 +6,7 @@ const Card: React.FC = () => {
     <Container>
       <Overlay>
         <h3>Titulo do filme aqui</h3>
+        <span>Descrição do filme aqui</span>
       </Overlay>
     </Container>
   );
