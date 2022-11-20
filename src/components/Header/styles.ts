@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   position: sticky;
+  z-index: 1000;
   top: 0;
   align-items: center;
   justify-content: space-between;
@@ -15,10 +16,13 @@ export const Container = styled.div`
 export const Logo = styled.div`
   display: flex;
   cursor: pointer;
-  align-items: center;
-  font-size: 3.5vh;
   color: #fff;
-  gap: 0.5vw;
+
+  h1 {
+    display: flex;
+    gap: 0.8vw;
+    align-items: center;
+  }
 `;
 
 export const Options = styled.div`

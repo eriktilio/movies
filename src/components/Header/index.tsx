@@ -6,7 +6,9 @@ const Header: React.FC = () => {
   return (
     <Container>
       <Logo>
-        <SlFilm /> Movies
+        <h1>
+          <SlFilm /> The Movies
+        </h1>
       </Logo>
       <Options>
         <Item>

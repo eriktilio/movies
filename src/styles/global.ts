@@ -40,6 +40,26 @@ export default createGlobalStyle`
     font-weight: 500;
   }
 
+  h1 {
+    font-size: 5vh;
+  }
+
+  h2 {
+    font-size: 4vh;
+  }
+
+  h3 {
+    font-size: 3vh;
+  }
+
+  span {
+    font-size: 2vh;
+  }
+
+  p {
+    font-size: 1.8vh;
+  }
+
   button {
     cursor: pointer;
   }
@@ -47,26 +67,22 @@ export default createGlobalStyle`
   /*CUSTOM SCROLLBAR*/
   /* width */
   ::-webkit-scrollbar {
-    width: 0.5vw;
+    width: 0.65vw;
   }
 
   /* Track */
   ::-webkit-scrollbar-track {
-    /* box-shadow: inset 0 0 0.5vh #0558a5; */
-    border-radius: 1vh;
-    background-color: #D4E3EC;
-    /* border: none; */
+    background-color: var(--color4);
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #0558a5;
-    border-radius: 1vh;
+    background: var(--color3);
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #004188;
+    background: var(--color2);
   }
   /**/
 `;
