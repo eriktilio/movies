@@ -1,17 +1,18 @@
 import React from "react";
 import Card from "../../components/Card";
+import Movie from "../../interfaces";
 import { Container } from "./styles";
 
-const CardList: React.FC = () => {
+interface CardListProps {
+  list: Movie[];
+}
+
+const CardList: React.FC<CardListProps> = ({ list }) => {
   return (
     <Container>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {list.map((item: Movie, index: number) => {
+        return <Card key={index} item={item} />;
+      })}
     </Container>
   );
 };

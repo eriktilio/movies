@@ -1,12 +1,17 @@
 import React from "react";
+import Movie from "../../interfaces";
 import { Container, Overlay } from "./styles";
 
-const Card: React.FC = () => {
+interface CardProps {
+  item: Movie;
+}
+
+const Card: React.FC<CardProps> = ({ item }) => {
   return (
     <Container>
       <Overlay>
-        <h3>Titulo do filme aqui</h3>
-        <span>Descrição do filme aqui</span>
+        <h3>{item.title}</h3>
+        <span>{item.overview}</span>
       </Overlay>
     </Container>
   );

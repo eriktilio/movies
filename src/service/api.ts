@@ -10,11 +10,10 @@ api.interceptors.request.use(async (config) => {
 });
 
 // API Interceptors to Responses
-api.interceptors.response.use(
-  undefined,
-  function axiosRetryInterceptor(err: any) {
-    return Promise.reject(err);
-  }
-);
+api.interceptors.response.use(undefined, function axiosRetryInterceptor(
+  err: any
+) {
+  return Promise.reject(err);
+});
 
 export default api;

@@ -2,9 +2,14 @@ import React from "react";
 import Card from "../Card";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Movie from "../../interfaces";
 import { Container } from "./styles";
 
-const CardCarousel: React.FC = () => {
+interface CardCarouselProps {
+  list: Movie[];
+}
+
+const CardCarousel: React.FC<CardCarouselProps> = ({ list }) => {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -31,17 +36,10 @@ const CardCarousel: React.FC = () => {
 
   return (
     <Container>
-      <Carousel responsive={responsive} partialVisible>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+      <Carousel responsive={responsive} partialVisible infinite>
+        {list.map((item: Movie, index: number) => {
+          return <Card item={item} key={index} />;
+        })}
       </Carousel>
     </Container>
   );
