@@ -4,17 +4,13 @@ import CardCarousel from "../CardCarousel";
 import Movie from "../../interfaces";
 import { Container } from "./styles";
 
-interface CategoryProps {
+interface Props {
   title: string;
   carousel?: boolean;
   list: Movie[];
 }
 
-const Category: React.FC<CategoryProps> = ({
-  title,
-  carousel = false,
-  list,
-}) => {
+const Category: React.FC<Props> = ({ title, carousel = false, list }) => {
   return (
     <Container>
       <h2>{title}</h2>

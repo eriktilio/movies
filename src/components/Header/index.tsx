@@ -1,20 +1,21 @@
 import React from "react";
-import { SlFilm, SlPlus } from "react-icons/sl";
+import { GiFilmSpool } from "react-icons/gi";
 import { Container, Logo, Options, Item } from "./styles";
 
-const Header: React.FC = () => {
+interface Props {
+  handleAddMovie: Function;
+}
+
+const Header: React.FC<Props> = ({ handleAddMovie }) => {
   return (
     <Container>
       <Logo>
         <h1>
-          <SlFilm /> The Movies
+          <GiFilmSpool /> The Movies
         </h1>
       </Logo>
       <Options>
-        <Item>
-          <SlPlus />
-          Adicionar
-        </Item>
+        <Item onClick={() => handleAddMovie()}>Adicionar</Item>
       </Options>
     </Container>
   );

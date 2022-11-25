@@ -5,11 +5,11 @@ import "react-multi-carousel/lib/styles.css";
 import Movie from "../../interfaces";
 import { Container } from "./styles";
 
-interface CardCarouselProps {
+interface Props {
   list: Movie[];
 }
 
-const CardCarousel: React.FC<CardCarouselProps> = ({ list }) => {
+const CardCarousel: React.FC<Props> = ({ list }) => {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },

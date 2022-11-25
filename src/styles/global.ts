@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export default createGlobalStyle`
   :root{
     /*PALETA DE CORES*/
-    --color1: #060606;
+    --color1: #141414;
     --color2: #1d262d;
     --color3: #3c505d;
     --color4: #5c7c94;
@@ -12,6 +12,7 @@ export default createGlobalStyle`
     /*VAR FIXAS*/
     --font: 'Maven Pro', sans-serif;
     --white: #fff;
+    --overlay: rgba(0, 0, 0, 0.5);
   }
 
   *{
@@ -22,11 +23,12 @@ export default createGlobalStyle`
   }
 
   html body {
-    height: 100%;
+    height: 100vh;
     width: 100%;
-    background: var(--color1);
+    background-image: linear-gradient(var(--color1), #000);
     color: var(--white);
     -webkit-font-smoothing: antialiased;
+    font-size: 2vh;
   }
 
   body, input, button {

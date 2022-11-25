@@ -2,12 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  position: sticky;
-  z-index: 1001;
   top: 0;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--color1);
   height: 100%;
   padding: 1.5vh 3vw;
   user-select: none;

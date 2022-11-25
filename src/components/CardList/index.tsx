@@ -3,11 +3,11 @@ import Card from "../../components/Card";
 import Movie from "../../interfaces";
 import { Container } from "./styles";
 
-interface CardListProps {
+interface Props {
   list: Movie[];
 }
 
-const CardList: React.FC<CardListProps> = ({ list }) => {
+const CardList: React.FC<Props> = ({ list }) => {
   return (
     <Container>
       {list.map((item: Movie, index: number) => {

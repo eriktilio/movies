@@ -2,11 +2,11 @@ import React from "react";
 import Movie from "../../interfaces";
 import { Container, Overlay } from "./styles";
 
-interface CardProps {
+interface Props {
   item: Movie;
 }
 
-const Card: React.FC<CardProps> = ({ item }) => {
+const Card: React.FC<Props> = ({ item }) => {
   return (
     <Container>
       <Overlay>
