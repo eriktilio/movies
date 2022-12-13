@@ -15,13 +15,14 @@ const database = new sqlite3.Database(DBSOURCE, (err) => {
     throw err;
   } else {
     console.log("Base de dados conectada com sucesso.");
+
     database.serialize(() => {
       database.run(SQL_MOVIES_CREATE, (err) => {
         if (err) {
           console.log(err.message);
           throw err;
         } else {
-          console.log("Tabela itens criada com sucesso.");
+          console.log("Tabela filmes criada com sucesso.");
         }
       });
     });
