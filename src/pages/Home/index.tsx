@@ -10,10 +10,13 @@ const Home: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [movies, setMovies] = useState<Array<Movie>>([]);
   const fetchData = async () => {
-    await api.get("/movies").then((res) => {
-      const { data } = res;
-      setMovies(data);
-    });
+    try {
+      await api.get("/movies").then((res) => {
+        setMovies(res.data);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {

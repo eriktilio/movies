@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import Input from "../Input";
 import Button from "../Button";
+import { Form } from "@unform/web";
 import { CgClose } from "react-icons/cg";
 import { HiCheck } from "react-icons/hi";
 import { Overlay, Container, Header, Body, Footer } from "./styles";
+import api from "../../service/api";
 
 interface Props {
   show: boolean;
@@ -11,6 +13,17 @@ interface Props {
 }
 
 const Modal: React.FC<Props> = ({ show, onClose }) => {
+  const formRef = useRef(null);
+  const handleSubmit = async (data: Object) => {
+    try {
+      await api.post("/movies", data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      onClose();
+    }
+  };
+
   if (!show) return null;
   return (
     <Overlay onClick={() => onClose()}>
@@ -18,8 +31,8 @@ const Modal: React.FC<Props> = ({ show, onClose }) => {
         <Header>
           <h3>Adicionar um novo filme</h3>
         </Header>
-        <Body>
-          <form>
+        <Form ref={formRef} onSubmit={handleSubmit} autoComplete="off">
+          <Body>
             <Input type="text" name="title">
               Titulo
             </Input>
@@ -29,18 +42,18 @@ const Modal: React.FC<Props> = ({ show, onClose }) => {
             <Input type="text" name="urlPoster">
               URL do pôster
             </Input>
-          </form>
-        </Body>
-        <Footer>
-          <Button onClick={() => onClose()}>
-            <CgClose />
-            Fechar
-          </Button>
-          <Button>
-            <HiCheck />
-            Concluir
-          </Button>
-        </Footer>
+          </Body>
+          <Footer>
+            <Button onClick={() => onClose()}>
+              <CgClose />
+              Fechar
+            </Button>
+            <Button type="submit">
+              <HiCheck />
+              Concluir
+            </Button>
+          </Footer>
+        </Form>
       </Container>
     </Overlay>
   );

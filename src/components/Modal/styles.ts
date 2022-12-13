@@ -22,6 +22,13 @@ export const Container = styled.div`
   padding: 3vh;
   height: 70%;
   width: 40%;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+  }
 `;
 
 export const Header = styled.div`
@@ -32,15 +39,8 @@ export const Header = styled.div`
 export const Body = styled.div`
   display: flex;
   flex-direction: column;
-  height: 80%;
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10%;
-    height: 100%;
-    width: 100%;
-  }
+  height: 90%;
+  gap: 10%;
 `;
 
 export const Footer = styled.div`
