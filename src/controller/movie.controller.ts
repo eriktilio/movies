@@ -8,9 +8,11 @@ import {
   deleteOneMovie,
 } from "../repositories/movie.repository";
 
-const movieController = {
+const MovieController = {
   createOne: (req: Request, res: Response) => {
     const movie: Movie = req.body;
+    movie.urlPoster = req.file?.path || "";
+    console.log(movie);
     createMovie(movie, (id) => {
       if (id) {
         res.status(201).location(`/movies/${id}`).send();
@@ -58,4 +60,4 @@ const movieController = {
   },
 };
 
-export default movieController;
+export default MovieController;

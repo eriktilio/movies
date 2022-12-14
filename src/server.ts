@@ -2,9 +2,9 @@ import * as dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import moviesRouter from "./routers/movies.router";
 
 dotenv.config();
-import moviesRouter from "./routers/movies.router";
 
 // App variáveis
 const PORT = process.env.API_PORT;
