@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import Input from "../Input";
+import InputImage from "../InputImage";
 import Button from "../Button";
 import { Form } from "@unform/web";
 import { CgClose } from "react-icons/cg";
@@ -39,9 +40,7 @@ const Modal: React.FC<Props> = ({ show, onClose }) => {
             <Input type="text" name="overview">
               Descrição
             </Input>
-            <Input type="text" name="urlPoster">
-              URL do pôster
-            </Input>
+            <InputImage name="urlPoster" />
           </Body>
           <Footer>
             <Button onClick={() => onClose()}>

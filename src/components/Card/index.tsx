@@ -8,7 +8,7 @@ interface Props {
 
 const Card: React.FC<Props> = ({ item }) => {
   return (
-    <Container>
+    <Container urlPoster={item.urlPoster}>
       <Overlay>
         <h3>{item.title}</h3>
         <span>{item.overview}</span>

@@ -13,7 +13,7 @@ export const Overlay = styled.div`
   opacity: 0;
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{ urlPoster?: string }>`
   display: flex;
   position: relative;
   flex-direction: column;
@@ -22,6 +22,7 @@ export const Container = styled.div`
   height: 60vh;
   width: 100%;
   user-select: none;
+  background-image: url(${({ urlPoster }) => urlPoster});
 
   transition: transform 0.2s; /* Animation */
 

@@ -23,9 +23,10 @@ export default createGlobalStyle`
   }
 
   html body {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-image: linear-gradient(var(--color1), #000);
+    background-repeat: no-repeat;
     color: var(--white);
     -webkit-font-smoothing: antialiased;
     font-size: 2vh;

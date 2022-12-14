@@ -47,6 +47,7 @@ const Input: React.FC<Props> = ({ type, name, children, ...rest }) => {
         name={name}
         value={value}
         onChange={handleTextChange}
+        required
         {...rest}
       />
       <label className={isActive ? "active" : ""} htmlFor={name}>
