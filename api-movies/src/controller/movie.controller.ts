@@ -11,8 +11,7 @@ import {
 const MovieController = {
   createOne: (req: Request, res: Response) => {
     const movie: Movie = req.body;
-    movie.urlPoster = req.file?.path || "";
-    console.log(movie);
+    movie.urlPoster = "uploads/" + req.file?.filename || "";
     createMovie(movie, (id) => {
       if (id) {
         res.status(201).location(`/movies/${id}`).send();

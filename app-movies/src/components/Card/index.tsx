@@ -11,7 +11,7 @@ const Card: React.FC<Props> = ({ item }) => {
     <Container urlPoster={item.urlPoster}>
       <Overlay>
         <h3>{item.title}</h3>
-        <span>{item.overview}</span>
+        <p>{item.overview}</p>
       </Overlay>
     </Container>
   );

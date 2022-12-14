@@ -5,8 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 5vh 0;
 
-  .react-multi-carousel-track {
-    display: flex;
-    gap: 2rem;
+  .card-item {
+    padding: 0 0.5vw;
   }
 `;

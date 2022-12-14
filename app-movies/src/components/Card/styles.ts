@@ -11,6 +11,10 @@ export const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.7);
   transition: 0.3s ease;
   opacity: 0;
+
+  p {
+    font-weight: bold;
+  }
 `;
 
 export const Container = styled.div<{ urlPoster?: string }>`
@@ -18,11 +22,13 @@ export const Container = styled.div<{ urlPoster?: string }>`
   position: relative;
   flex-direction: column;
   border-radius: 1vh;
-  background-color: var(--color5);
   height: 60vh;
   width: 100%;
   user-select: none;
   background-image: url(${({ urlPoster }) => urlPoster});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 
   transition: transform 0.2s; /* Animation */
 

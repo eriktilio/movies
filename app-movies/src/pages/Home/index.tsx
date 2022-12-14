@@ -21,7 +21,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [showModal]);
 
   return (
     <Container>
